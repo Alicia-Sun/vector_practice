@@ -23,7 +23,7 @@ namespace MyImpl {
         T& operator[](int index);
         
         // Appends new_ele to back of vector
-        void append(T& new_ele);
+        void append(const T& new_ele);
 
         // Removes and returns last element in vector
         T& pop_back();
@@ -33,15 +33,12 @@ namespace MyImpl {
 
     private:
         // Ptr to reserved start of array containing the underlying data
-        T* arr_start_;
+        T* arr_;
 
         // Maximum capacity of the vector (or length of underlying array) 
         std::size_t capacity_;
 
         // How many elements currently in the vector
         std::size_t size_;
-        
-        // Minimum length of underlying array
-        std::size_t reserved_length_;
     };
 }

@@ -31,5 +31,5 @@ void Vector<T>::resize(std::size_t new_capacity) {
 
 template <class T>
 void Vector<T>::reserve(std::size_t min_length) {
-
+    
 }

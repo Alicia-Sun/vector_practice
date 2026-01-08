@@ -1,18 +1,16 @@
-cxx := g++
+CXX = g++
+CXXFLAGS = -Wall -g
 
-CXXFLAGS := -Wall -g
+OBJS = main.o vector.o
 
-TARGET := main
+main: $(OBJS)
+	$(CXX) $(CXXFLAGS) $(OBJS) -o main
 
-all: $(TARGET)
+main.o: main.cpp vector.h
+	$(CXX) $(CXXFLAGS) -c main.cpp
 
-$(TARGET): main.o
-	$(CXX) $(CXXFLAGS) $^ -o $@
+vector.o: vector.cpp vector.h
+	$(CXX) $(CXXFLAGS) -c vector.cpp
 
-main.o: main.cpp
-	$(CXX) $(CXXFLAGS) -c $< -o $@
-
-.PHONY: clean
 clean:
-	rm -f $(TARGET) *.o
- 
+	rm -f *.o main

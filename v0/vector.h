@@ -32,11 +32,8 @@ namespace MyImpl {
         void insert(T& new_ele, std::size_t index);
 
     private:
-        // Ptr to start of array containing the underlying data
+        // Ptr to reserved start of array containing the underlying data
         T* arr_start_;
-
-        // Ptr to end of array containing the underlying data
-        T* arr_end_;
 
         // Maximum capacity of the vector (or length of underlying array) 
         std::size_t capacity_;

@@ -31,6 +31,9 @@ namespace MyImpl {
         // Inserts element at specific index of vector
         void insert(T& new_ele, std::size_t index);
 
+        // Prints the string representation of vector
+        void print();
+
     private:
         // Ptr to reserved start of array containing the underlying data
         T* arr_;

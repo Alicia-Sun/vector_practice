@@ -40,7 +40,7 @@ void Vector<T>::reserve(std::size_t min_length) {
 
 template <class T>
 T& Vector<T>::operator[](int index) {
-    if (index < 0 || index >= this->size_) {
+    if (index < 0 || index >= int(this->size_)) {
         throw std::out_of_range("Index out of range");
     }
     return this->arr_[index];
@@ -52,7 +52,7 @@ void Vector<T>::append(const T& new_ele) {
         // Double the capacity
         resize(this->capacity_ * 2);
     }
-    this->arr_[this->size_ + 1] = new_ele;
+    this->arr_[this->size_] = new_ele;
     this->size_++;
 }
 
@@ -62,11 +62,11 @@ T& Vector<T>::pop_back() {
         throw std::runtime_error("Empty vector");
     }
     this->size_--;
-    return this->arr_[this->size_+1];
+    return this->arr_[this->size_];
 }
 
 template <class T>
-void Vector<T>::insert(T& new_ele, std::size_t index) {
+void Vector<T>::insert(const T& new_ele, std::size_t index) {
     if (this->size_ == this->capacity_) {
         // Double the capacity
         resize(this->capacity_ * 2);
@@ -75,6 +75,7 @@ void Vector<T>::insert(T& new_ele, std::size_t index) {
         this->arr_[i + 1] = this->arr_[i];
     }
     this->arr_[index] = new_ele;
+    this->size_++;
 }
 
 template <class T>

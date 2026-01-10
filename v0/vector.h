@@ -29,7 +29,7 @@ namespace MyImpl {
         T& pop_back();
 
         // Inserts element at specific index of vector
-        void insert(T& new_ele, std::size_t index);
+        void insert(const T& new_ele, std::size_t index);
 
         // Prints the string representation of vector
         void print();
